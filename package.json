@@ -1,0 +1,31 @@
+{
+  "name": "blog-api",
+  "version": "1.0.0",
+  "description": "## Project creating a RESTish API with diffrent frontend sites that use it.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuvalkarif/blog-api.git"
+  },
+  "keywords": [],
+  "author": "Yuval Karif <yuvalkarif3@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuvalkarif/blog-api/issues"
+  },
+  "homepage": "https://github.com/yuvalkarif/blog-api#readme",
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/node": "^7.15.4",
+    "@babel/preset-env": "^7.15.6",
+    "nodemon": "^2.0.12"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.5"
+  }
+}
