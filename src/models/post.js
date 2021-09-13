@@ -1,20 +1,24 @@
 import mongoose from "mongoose";
 const { Schema } = mongoose;
+import { DateTime } from "luxon";
 
 const postSchema = new Schema({
   title: { type: String, required: true },
   body: { type: String, required: true },
   author: { type: String, required: true },
-  likes: { type: Number, default: 0 },
   date: { type: Date, default: Date.now },
-  public: { type: Boolean, default: true },
+  datetime: {
+    type: String,
+    default: DateTime.now().toLocaleString(DateTime.DATE_MED),
+  },
+  public: { type: Boolean, default: false },
   comments: [
     {
-      body: String,
-      username: { type: String, default: Anon },
+      body: { type: String, required: true },
+      username: { type: String, default: "Anon" },
       date: { type: Date, default: Date.now },
     },
   ],
 });
-
-export default Post = mongoose.model("Post", postSchema);
+const Post = mongoose.model("Post", postSchema);
+export default Post;
