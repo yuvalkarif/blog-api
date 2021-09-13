@@ -13,13 +13,14 @@ export const postsRead = async (req, res, next) => {
 };
 
 export const postCreate = async (req, res, next) => {
-  console.log(req.body);
+  const { title, body, author } = req.body;
   const newPost = new Post({
-    title: req.body.title,
-    body: req.body.body,
-    author: req.body.author,
+    title,
+    body,
+    author,
   });
   let savedPost;
+  btoa;
   try {
     savedPost = await newPost.save();
   } catch (error) {
@@ -28,6 +29,20 @@ export const postCreate = async (req, res, next) => {
   res.json({
     msg: "Post Created Succesfully",
     post: savedPost,
+  });
+};
+export const postRead = async (req, res, next) => {
+  const { id } = req.params;
+
+  let fetchedPost;
+  try {
+    fetchedPost = await Post.findById(id);
+  } catch (error) {
+    next(error);
+  }
+  res.json({
+    msg: "Post fetched Successfuly",
+    post: fetchedPost,
   });
 };
 
