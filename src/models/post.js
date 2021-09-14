@@ -7,6 +7,10 @@ const postSchema = new Schema({
   body: { type: String, required: true },
   author: { type: String, required: true },
   date: { type: Date, default: Date.now },
+  edited: {
+    type: String,
+    default: undefined,
+  },
   datetime: {
     type: String,
     default: DateTime.now().toLocaleString(DateTime.DATE_MED),
@@ -17,6 +21,10 @@ const postSchema = new Schema({
       body: { type: String, required: true },
       username: { type: String, default: "Anon" },
       date: { type: Date, default: Date.now },
+      datetime: {
+        type: String,
+        default: DateTime.now().toLocaleString(DateTime.DATE_MED),
+      },
     },
   ],
 });
