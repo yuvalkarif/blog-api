@@ -40,11 +40,28 @@ export const postCreate = [
     } else {
       res.json({
         msg: "Post Creation Failed",
-        errors,
+        errors: errors.array(),
       });
     }
   },
 ];
+export const postRemove = async (req, res, next) => {
+  const { id } = req.params;
+  let deletedPost;
+  try {
+    deletedPost = await Post.findByIdAndDelete(id);
+    res.json({
+      msg: "Post Removed Successfuly",
+      post: deletedPost,
+    });
+  } catch (error) {
+    next(error);
+    res.json({
+      msg: "Post Remove Failed",
+      error,
+    });
+  }
+};
 
 export const postRead = async (req, res, next) => {
   const { id } = req.params;
@@ -132,4 +149,31 @@ export const postCommentCreate = [
   },
 ];
 
+export const postCommentRemove = async (req, res, next) => {
+  const { postID, commentID } = req.params;
+  let fetchedPost;
+  try {
+    fetchedPost = await Post.findById(postID);
+    let removedComments = fetchedPost.comments.filter(
+      (comment) => comment.id != commentID
+    );
+
+    if (removedComments.length == fetchedPost.comments.length) {
+      throw { msg: "Comment to remove not Found", commentID, postID };
+    }
+
+    fetchedPost.comments = removedComments;
+    fetchedPost.save();
+    res.json({
+      msg: "Post Comment Removed Successfuly",
+      post: fetchedPost,
+    });
+  } catch (error) {
+    next(error);
+    res.json({
+      msg: "Post Comment Removal Failed",
+      error,
+    });
+  }
+};
 // CRUD - Create Read Update Delete
