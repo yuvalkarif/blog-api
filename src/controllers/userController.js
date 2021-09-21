@@ -56,6 +56,7 @@ export const login = async (req, res, next) => {
         msg: "User Authenticated Successfuly",
         isAuth,
         token,
+        user: existingUser,
       });
     } else {
       res.json({
@@ -63,5 +64,7 @@ export const login = async (req, res, next) => {
         isAuth,
       });
     }
+  } else {
+    res.status(401).json({ msg: "Wrong Credentials" });
   }
 };
