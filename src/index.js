@@ -1,4 +1,5 @@
 import express from "express";
+import bodyParser from "body-parser";
 import cors from "cors";
 import mongoDB from "./config/database";
 import apiRouter from "./routes/api";
@@ -9,6 +10,11 @@ const app = express();
 app.use(cors());
 //Parsing the Body for Post Requests
 app.use(express.json());
+app.use(express.static("./public"));
+app.use("/uploads", express.static("uploads"));
+
+app.use(bodyParser.json({ limit: "30mb", extended: true }));
+app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 //Connecting to MongoDB
 const db = mongoDB();
 
