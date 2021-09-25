@@ -21,11 +21,12 @@ export const postCreate = [
   async (req, res, next) => {
     const errors = validationResult(req);
     if (errors.isEmpty()) {
-      const { title, body, author } = req.body;
+      const { title, body, author, thumbnail } = req.body;
       const newPost = new Post({
         title,
         body,
         author,
+        thumbnail,
       });
       let savedPost;
       try {
@@ -84,7 +85,7 @@ export const postUpdate = [
     const errors = validationResult(req);
     if (errors.isEmpty()) {
       const { id } = req.params;
-      const { title, body } = req.body;
+      const { title, body, thumbnail } = req.body;
       let editedPost;
       try {
         editedPost = await Post.findByIdAndUpdate(
@@ -93,6 +94,7 @@ export const postUpdate = [
             title: title,
             body: body,
             edited: DateTime.now().toLocaleString(DateTime.DATE_MED),
+            thumbnail,
           },
           {
             new: true,

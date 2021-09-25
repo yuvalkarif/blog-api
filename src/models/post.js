@@ -6,6 +6,7 @@ const postSchema = new Schema({
   title: { type: String, required: true },
   body: { type: String, required: true },
   author: { type: String, required: true },
+  thumbnail: { type: String },
   date: { type: Date, default: Date.now },
   edited: {
     type: String,
