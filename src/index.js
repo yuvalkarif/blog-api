@@ -3,10 +3,16 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import mongoDB from "./config/database";
 import apiRouter from "./routes/api";
+import compression from "compression";
+import helmet from "helmet";
 
 //Initiating Express
 const app = express();
+app.use(helmet());
+app.use(compression());
+
 //Allowing other sites to fetch
+
 app.use(cors());
 //Parsing the Body for Post Requests
 app.use(express.json());
