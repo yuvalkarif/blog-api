@@ -22,7 +22,7 @@ export const postCreate = [
     const errors = validationResult(req);
     if (errors.isEmpty()) {
       const { title, body, author, thumbnail } = req.body;
-      const newPost = new Post({
+      let newPost = new Post({
         title,
         body,
         author,
