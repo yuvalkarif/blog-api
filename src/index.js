@@ -15,7 +15,7 @@ app.use(compression());
 
 app.use(
   cors({
-    origin: "https://yuvalkarif.github.io/blog-frontend/",
+    origin: "https://yuvalkarif.github.io",
   })
 );
 //Parsing the Body for Post Requests
