@@ -37,7 +37,8 @@ app.use(_bodyParser.default.urlencoded({
 
 var db = (0, _database.default)();
 app.use("/api", _api.default);
-app.listen(8080, function () {
-  console.log("--WORKING IN PORT:8080--");
+var PORT = process.env.PORT || 8080;
+app.listen(PORT, function () {
+  console.log("--WORKING IN PORT:".concat(PORT, "--"));
 });
 //# sourceMappingURL=index.js.map

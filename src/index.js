@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 const db = mongoDB();
 
 app.use("/api", apiRouter);
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, function () {
   console.log(`--WORKING IN PORT:${PORT}--`);
 });
