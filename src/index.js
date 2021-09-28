@@ -13,7 +13,11 @@ app.use(compression());
 
 //Allowing other sites to fetch
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://yuvalkarif.github.io",
+  })
+);
 //Parsing the Body for Post Requests
 app.use(express.json());
 app.use(express.static("./public"));
