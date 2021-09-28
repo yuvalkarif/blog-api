@@ -8,17 +8,7 @@ import helmet from "helmet";
 
 //Initiating Express
 const app = express();
-app.use(
-  cors({
-    origin: "https://yuvalkarif.github.io",
-  })
-);
-app.options(
-  "*",
-  cors({
-    origin: "https://yuvalkarif.github.io",
-  })
-);
+app.use(cors());
 app.use(helmet());
 app.use(compression());
 
