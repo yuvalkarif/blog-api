@@ -32,8 +32,6 @@ var upload = (0, _multer.default)({
   storage: storage,
   fileFilter: fileFilter
 });
-
-var _default = upload.single("thumbnail");
-
+var _default = upload;
 exports.default = _default;
 //# sourceMappingURL=upload.js.map

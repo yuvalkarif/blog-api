@@ -7,8 +7,6 @@ exports.default = void 0;
 
 var _express = require("express");
 
-var _upload = _interopRequireDefault(require("../config/upload"));
-
 var _postController = require("../controllers/postController");
 
 var _userController = require("../controllers/userController");
@@ -17,11 +15,12 @@ var _verifyToken = _interopRequireDefault(require("../middlewares/verifyToken"))
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import upload from "../config/upload";
 var router = (0, _express.Router)(); //---POST ACTIONS---//npm
-
-router.patch("/images/upload", _upload.default, (req, res, next) => {
-  res.send(req.file);
-}); //View all Posts ✔️
+// router.patch("/images/upload", upload, (req, res, next) => {
+//   res.send(req.file);
+// });
+//View all Posts ✔️
 
 router.get("/post/all", _postController.postsRead); //View specific Post by ID ✔️
 

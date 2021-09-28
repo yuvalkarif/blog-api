@@ -1,5 +1,5 @@
 import { Router } from "express";
-import upload from "../config/upload";
+// import upload from "../config/upload";
 import {
   postCreate,
   postsRead,
@@ -15,9 +15,9 @@ import verifyToken from "../middlewares/verifyToken";
 let router = Router();
 
 //---POST ACTIONS---//npm
-router.patch("/images/upload", upload, (req, res, next) => {
-  res.send(req.file);
-});
+// router.patch("/images/upload", upload, (req, res, next) => {
+//   res.send(req.file);
+// });
 
 //View all Posts ✔️
 router.get("/post/all", postsRead);

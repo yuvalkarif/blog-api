@@ -18,10 +18,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 //Initiating Express
 var app = (0, _express.default)();
+app.use((0, _cors.default)({
+  origin: "https://yuvalkarif.github.io"
+}));
 app.use((0, _helmet.default)());
 app.use((0, _compression.default)()); //Allowing other sites to fetch
-
-app.use((0, _cors.default)()); //Parsing the Body for Post Requests
+//Parsing the Body for Post Requests
 
 app.use(_express.default.json());
 app.use(_express.default.static("./public"));
