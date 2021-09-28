@@ -8,7 +8,7 @@ import helmet from "helmet";
 
 //Initiating Express
 const app = express();
-app.use(cors());
+// app.use(cors());
 app.use(helmet());
 app.use(compression());
 
