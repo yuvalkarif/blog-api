@@ -15,10 +15,10 @@
  
 <p align="center" width="100%">
    <a href="https://yuvalkarif.github.io/blog-frontend/">
-    <img width="33%" src=https://i.imgur.com/A8EdsHy.png> 
+    <img width="50%" src=https://i.imgur.com/A8EdsHy.png> 
   </a>
   <br / >
   <a href="https://yuvalkarif.github.io/blog-frontend/">
-    <img width="33%" src="https://i.imgur.com/px8XkLx.png"> 
+    <img width="50%" src="https://i.imgur.com/px8XkLx.png"> 
   </a>
 </p>
